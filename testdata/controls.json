@@ -235,13 +235,13 @@
   },
   {
     "id": "door-switch",
-    "label": "Switch active HomeSpeaker (App / Extension)",
+    "label": "Switch active Vitruvian Speaker (App / Extension)",
     "via": "switchTo",
     "phone": "supported"
   },
   {
     "id": "door-copy-settings",
-    "label": "Copy settings from other HomeSpeaker",
+    "label": "Copy settings from other Vitruvian Speaker",
     "via": "switchTo",
     "phone": "supported"
   },
@@ -253,21 +253,21 @@
   },
   {
     "id": "door-quit-other",
-    "label": "Quit other HomeSpeaker",
+    "label": "Quit other Vitruvian Speaker",
     "via": "extension-ui",
     "phone": "excluded",
     "reason": "Acts on another app's process on the Mac."
   },
   {
     "id": "door-login-item",
-    "label": "Turn off HomeSpeaker app login item",
+    "label": "Turn off Vitruvian Speaker app login item",
     "via": "--login-item disable",
     "phone": "excluded",
     "reason": "Acts on another app's login item and files on the Mac."
   },
   {
     "id": "door-trash",
-    "label": "Move HomeSpeaker.app to Trash",
+    "label": "Move Vitruvian Speaker.app to Trash",
     "via": "extension-ui",
     "phone": "excluded",
     "reason": "Acts on another app's files on the Mac; moving to Trash from a phone is destructive and hard to undo."

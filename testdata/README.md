@@ -1,10 +1,10 @@
-# Home Speaker Shared Rulebook Test Cases
+# Vitruvian Speaker Shared Rulebook Test Cases
 
-These JSON files capture the single rulebook for Home Speaker's settings catalog, choice lists, numeric limits, visibility rules, quiet hours, speaker ordering, active outputs summary, and chat monitor status belief rules.
+These JSON files capture the single rulebook for Vitruvian Speaker's settings catalog, choice lists, numeric limits, visibility rules, quiet hours, speaker ordering, active outputs summary, and chat monitor status belief rules.
 
 ## Who reads these files
 
-- **Swift engine tests (now):** `//apps/desktop/home-speaker:HomeSpeakerTests` (`Tests/HomeSpeakerTests/SharedRulebookCasesTests.swift` and `Tests/HomeSpeakerTests/ControlsManifestTests.swift`) loads every `.json` file in this directory and checks `HomeSpeakerCore` (`SettingsCatalog`, `SpeakerConfig`, `SpeakerDevice`, `ChatMonitorConfig`, `ChatMonitorStatus`, `HomeSpeakerStateContract.supportedOperations`) against it.
+- **Swift engine tests (now):** `//apps/desktop/vitruvian-speaker:VitruvianSpeakerTests` (`Tests/VitruvianSpeakerTests/SharedRulebookCasesTests.swift` and `Tests/VitruvianSpeakerTests/ControlsManifestTests.swift`) loads every `.json` file in this directory and checks `VitruvianSpeakerCore` (`SettingsCatalog`, `SpeakerConfig`, `SpeakerDevice`, `ChatMonitorConfig`, `ChatMonitorStatus`, `VitruvianSpeakerStateContract.supportedOperations`) against it.
 - **Android remote tests:**
   - Rust Mac helper tests: `//apps/mobile/android-remote/macagent:macagent_test` (reads `state_v1.json` and `controls.json`)
   - Kotlin state & derivation tests: `//apps/mobile/android-remote:derive_test` and `//apps/mobile/android-remote:wire_test` (read `state_v1.json` and `controls.json`)
@@ -19,5 +19,5 @@ These JSON files capture the single rulebook for Home Speaker's settings catalog
 - `outputs_label.json` — `SpeakerConfig.activeOutputsLabel` across output combinations and the phone's `"Your phone"` → `"This phone"` substitution.
 - `chat_monitor_status.json` — `ChatMonitorStatus.believed(ownerRunning:)` clearing `isRunning` and `lastError` when the owning process is no longer running.
 - `oauth_client_override.json` — Google sign-in client override rule: a blank secret with an unchanged client ID keeps the stored secret; a blank secret with a changed client ID clears it; a blank client ID clears both.
-- `controls.json` — Non-catalog extension controls manifest (`id`, `label`, `via`: an `--apply` op, a CLI flag, or `helper:<name>` for something the Mac helper does itself (e.g. voice preview runs macOS `say`), `phone` `"supported"` | `"excluded"`, and `reason` when excluded). Checked by `ControlsManifestTests` in `HomeSpeakerTests` (every `HomeSpeakerStateContract.supportedOperations` name appears as `via`), `macagent_test` (every supported control is mapped by the Mac helper), and `derive_test` (every supported control has a phone control).
+- `controls.json` — Non-catalog extension controls manifest (`id`, `label`, `via`: an `--apply` op, a CLI flag, or `helper:<name>` for something the Mac helper does itself (e.g. voice preview runs macOS `say`), `phone` `"supported"` | `"excluded"`, and `reason` when excluded). Checked by `ControlsManifestTests` in `VitruvianSpeakerTests` (every `VitruvianSpeakerStateContract.supportedOperations` name appears as `via`), `macagent_test` (every supported control is mapped by the Mac helper), and `derive_test` (every supported control has a phone control).
 - `state_v1.json` — Golden `--state --json` contract v1 document produced from a fixed scratch configuration (multiple homes with one selected, multiple speakers, quiet hours, chat sources, Gemini voice engine, and installed Claude Code hook) with all secret values redacted.
