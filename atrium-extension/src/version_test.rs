@@ -20,7 +20,7 @@
 
 //! The tool's version is the app's, in every file that says it.
 //!
-//! Checks tool/vitruvian-tool.json layout (2-space indented JSON matching
+//! Checks atrium-extension/vitruvian-tool.json layout (2-space indented JSON matching
 //! release-please) and version X.Y.Z, matches
 //! Sources/VitruvianSpeakerToolCore/Version.swift and
 //! Sources/VitruvianSpeakerCore/Version.swift, checks release-please-config.json
@@ -135,7 +135,7 @@ fn release_please_layout(text: &str) -> String {
 fn tool_version_matches_app() {
     let mut problems = Vec::new();
 
-    let manifest_path = rlocation(&format!("{}/tool/vitruvian-tool.json", PKG));
+    let manifest_path = rlocation(&format!("{}/atrium-extension/vitruvian-tool.json", PKG));
     let manifest_text = fs::read_to_string(&manifest_path)
         .unwrap_or_else(|e| panic!("cannot read {}: {}", manifest_path.display(), e));
 
@@ -210,7 +210,7 @@ fn tool_version_matches_app() {
         .unwrap_or_default();
 
     for needed in &[
-        "tool/vitruvian-tool.json",
+        "atrium-extension/vitruvian-tool.json",
         "Sources/VitruvianSpeakerToolCore/Version.swift",
     ] {
         if !extra_files.iter().any(|f| f == needed) {
